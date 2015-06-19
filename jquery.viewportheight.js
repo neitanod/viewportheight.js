@@ -11,8 +11,6 @@
           else if(watch[i].callback) watch[i].$elm.height(wh+watch[i].callback());
           else watch[i].$elm.height(0);
         }
-      } else {
-        clearInterval(interval);
       }
     };
 
