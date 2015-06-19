@@ -2,19 +2,9 @@
   var watch = [];
   var onresizeloaded = false;
 
-  var winHeight = function(){
-    // get window height in IE8 and older
-    if(window.innerHeight != undefined){
-        return window.innerHeight;
-    } else {
-        var B= document.body, D= document.documentElement;
-        return Math.max(D.clientHeight, B.clientHeight);
-    }
-  }
-
   var resizer = function(){
       if(watch.length){
-        var wh = window.innerHeight || winHeight();
+        var wh = window.innerHeight || Math.max(document.documentElement.clientHeight, document.body.clientHeight);
         for( i in watch){
           if(watch[i].percent) watch[i].$elm.height(wh*(watch[i].percent/100));
           else if(watch[i].param) watch[i].$elm.height(wh+watch[i].param);
