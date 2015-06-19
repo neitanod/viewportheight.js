@@ -54,7 +54,7 @@
           $('.alto_menos100').setViewportRelativeHeight(-100);  // altura del viewport menos 100 pixels
           $('.alto_mas100').setViewportRelativeHeight(100);     // altura del viewport mas 100 pixels
           $('.alto_menos_menu').setViewportRelativeHeight(-$('#menu').height());  // altura del viewport menos altura de otro elemento
-          $('.alto_mas_callback').setViewportRelativeHeight(function(){ return -$('.alto_60').height(); });  // altura del viewport mas valor dado por callback
+          $('.alto_mas_callback').setViewportRelativeHeight(function(){ return -$('#menu').height(); });  // altura del viewport mas valor dado por callback
       &lt;/script>
     </pre>
 
