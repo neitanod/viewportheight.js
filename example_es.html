@@ -42,6 +42,7 @@
       &lt;div class="alto_menos100">viewport menos 100 pixels&lt;/div>
       &lt;div class="alto_mas100">viewport mas 100 pixels&lt;/div>
       &lt;div class="alto_menos_menu">viewport menos la altura del menú&lt;/div>
+      &lt;div class="alto_mas_callback">viewport mas altura definida con función callback&lt;/div>
     </pre>
 
     <p>Ejecutar la linea que redimensiona (mas abajo de los elementos):</p>
@@ -53,6 +54,7 @@
           $('.alto_menos100').setViewportRelativeHeight(-100);  // altura del viewport menos 100 pixels
           $('.alto_mas100').setViewportRelativeHeight(100);     // altura del viewport mas 100 pixels
           $('.alto_menos_menu').setViewportRelativeHeight(-$('#menu').height());  // altura del viewport menos altura de otro elemento
+          $('.alto_mas_callback').setViewportRelativeHeight(function(){ return -$('.alto_60').height(); });  // altura del viewport mas valor dado por callback
       &lt;/script>
     </pre>
 
