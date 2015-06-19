@@ -2,12 +2,24 @@
   var watch = [];
   var onresizeloaded = false;
 
+  var winHeight = function(){
+    // get window height in IE8 and older
+    if(window.innerHeight != undefined){
+        return window.innerHeight;
+    } else {
+        var B= document.body, D= document.documentElement;
+        return Math.max(D.clientHeight, B.clientHeight);
+    }
+  }
+
   var resizer = function(){
       if(watch.length){
+        var wh = window.innerHeight;
+        if(!wh) wh = winHeight();
         for( i in watch){
-          if(watch[i].percent) watch[i].$elm.height(window.innerHeight*(watch[i].percent/100));
-          else if(watch[i].param) watch[i].$elm.height(window.innerHeight+watch[i].param);
-          else if(watch[i].callback) watch[i].$elm.height(window.innerHeight+watch[i].callback());
+          if(watch[i].percent) watch[i].$elm.height(wh*(watch[i].percent/100));
+          else if(watch[i].param) watch[i].$elm.height(wh+watch[i].param);
+          else if(watch[i].callback) watch[i].$elm.height(wh+watch[i].callback());
           else watch[i].$elm.height(0);
         }
       } else {
