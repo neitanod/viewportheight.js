@@ -14,8 +14,7 @@
 
   var resizer = function(){
       if(watch.length){
-        var wh = window.innerHeight;
-        if(!wh) wh = winHeight();
+        var wh = window.innerHeight || winHeight();
         for( i in watch){
           if(watch[i].percent) watch[i].$elm.height(wh*(watch[i].percent/100));
           else if(watch[i].param) watch[i].$elm.height(wh+watch[i].param);
