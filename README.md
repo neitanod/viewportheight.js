@@ -1,8 +1,17 @@
+jquery.viewportheight.js:
+=========================
+
+This is a little jQuery plugin to define an HTML element height relative to the
+viewport height.
+
+It sets the height right away, and also adds a watcher to the window resize
+event to keep the elment height as defined if the viewport size changes.
+
 Usage:
 ======
 
-Include jQuery and the plugin:
-------------------------------
+Include jQuery and this plugin:
+-------------------------------
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
     <script src="jquery.viewportheight.js"></script>
@@ -10,12 +19,13 @@ Include jQuery and the plugin:
 Create the elements you want to define a viewport relative height for:
 ----------------------------------------------------------------------
 
-    <div class="alto_100">100% del viewport</div>
-    <div class="alto_50">50% del viewport</div>
-    <div class="alto_60">60% del viewport</div>
-    <div class="alto_menos100">viewport menos 100 pixels</div>
-    <div class="alto_mas100">viewport mas 100 pixels</div>
-    <div class="alto_menos_menu">viewport menos la altura del menú</div>
+    <div class="100percent">100% of the viewport</div>
+    <div class="50percent">50% of the viewport</div>
+    <div class="60percent">60% of the viewport</div>
+    <div class="minus100">viewport minus 100 pixels</div>
+    <div class="plus100">viewport plus 100 pixels</div>
+    <div class="minus_menu">viewport minus another element's height</div>
+    <div class="plus_callback">viewport plus callback returned value</div>
 
 Define the height using $.setViewportRelativeHeight():
 ------------------------------------------------------
@@ -27,6 +37,6 @@ Define the height using $.setViewportRelativeHeight():
       $('.minus100').setViewportRelativeHeight(-100);         // viewport height minus 100 pixels
       $('.plus100').setViewportRelativeHeight(100);           // viewport plus 100 pixels
       $('.minus_menu').setViewportRelativeHeight(-$('#menu').height());      // viewport height minus another element's height
-      $('.minus_callback').setViewportRelativeHeight(function(){ return -$('#menu').height(); });  // viewport height plus callback function
+      $('.plus_callback').setViewportRelativeHeight(function(){ return -$('#menu').height(); });  // viewport height plus callback function
     </script>
 

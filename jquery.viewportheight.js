@@ -1,6 +1,5 @@
 (function(){
   var watch = [];
-  var interval = false;
   var onresizeloaded = false;
 
   var resizer = function(){
@@ -43,14 +42,6 @@
 
     // adjust size again when page load completes
     jQuery(resizer);
-
-    // sometimes the page did not completely load when load event occurs due
-    // to delayed asynchronous ajax calls or lazy image load
-    // so, start watching with a timer, but stop after 10 seconds
-    if(!interval) {
-      interval = setInterval(resizer, 500);
-      setTimeout(function(){ clearInterval(interval); interval = false; }, 10000);
-    }
 
     // also start listening to the onresize event of the window
     if(!onresizeloaded) jQuery(window).resize(resizer); onresizeloaded = true;
