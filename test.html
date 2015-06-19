@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+    <script src="jquery.viewportheight.js"></script>
+    <style>
+      div {
+        border: 1px solid red; float: left; margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body style="margin: 0">
+    <div class="alto_100">100% del viewport</div>
+    <div class="alto_50">50% del viewport</div>
+    <div class="alto_60">60% del viewport</div>
+    <div class="alto_menos100">viewport menos 100 pixels</div>
+    <div class="alto_mas100">viewport mas 100 pixels</div>
+    <script>
+      $('.alto_100').setViewportRelativeHeight();
+      $('.alto_50').setViewportRelativeHeight('50%');
+      $('.alto_60').setViewportRelativeHeight('60%');
+      $('.alto_menos100').setViewportRelativeHeight(-100);
+      $('.alto_mas100').setViewportRelativeHeight(100);
+    </script>
+
+
+    <h3 style="clear: both;">Modo de uso:</h3>
+
+    <p>Incluir jQuery y el plugin:</p>
+    <pre>
+      &lt;script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js">&lt;/script>
+      &lt;script src="jquery.viewportheight.js">&lt;/script>
+    </pre>
+
+    <p>Definir los elementos a redimensionar:</p>
+    <pre>
+      &lt;div class="alto_100">100% del viewport&lt;/div>
+      &lt;div class="alto_50">50% del viewport&lt;/div>
+      &lt;div class="alto_60">60% del viewport&lt;/div>
+      &lt;div class="alto_menos100">viewport menos 100 pixels&lt;/div>
+      &lt;div class="alto_mas100">viewport mas 100 pixels&lt;/div>
+      &lt;div class="alto_menos_menu">viewport menos la altura del menú&lt;/div>
+    </pre>
+
+    <p>Ejecutar la linea que redimensiona (mas abajo de los elementos):</p>
+    <pre>
+      &lt;script>
+          $('.alto_100').setViewportRelativeHeight();           // 100% del viewport
+          $('.alto_50').setViewportRelativeHeight('50%');       // 50% del viewport
+          $('.alto_60').setViewportRelativeHeight('60%');       // 60% del viewport
+          $('.alto_menos100').setViewportRelativeHeight(-100);  // altura del viewport menos 100 pixels
+          $('.alto_mas100').setViewportRelativeHeight(100);     // altura del viewport mas 100 pixels
+          $('.alto_menos_menu').setViewportRelativeHeight(-$('#menu').height());  // altura del viewport menos altura de otro elemento
+      &lt;/script>
+    </pre>
+
+
+
+
+  </body>
+</html>
