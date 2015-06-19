@@ -8,6 +8,7 @@
         for( i in watch){
           if(watch[i].percent) watch[i].$elm.height(window.innerHeight*(watch[i].percent/100));
           else if(watch[i].param) watch[i].$elm.height(window.innerHeight+watch[i].param);
+          else if(watch[i].callback) watch[i].$elm.height(window.innerHeight+watch[i].callback());
           else watch[i].$elm.height(0);
         }
       } else {
@@ -20,8 +21,12 @@
     elms.each(
       function(i){
         var percent = 0;
+        var callback = false;
         if(typeof(param) == 'string' && param.indexOf('%')){
           percent = param.split('%')[0];
+          param = "";
+        } else if(typeof(param) == 'function'){
+          callback = param;
           param = "";
         } else if(typeof(param) == 'undefined'){
           percent = 100;
@@ -29,7 +34,7 @@
         } else {
           param = parseFloat(param);
         }
-        watch.push({'$elm': jQuery(this), 'param': param, 'percent': percent});
+        watch.push({'$elm': jQuery(this), 'param': param, 'percent': percent, 'callback': callback});
       }
     )
 

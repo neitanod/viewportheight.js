@@ -15,12 +15,14 @@
     <div class="alto_60">60% del viewport</div>
     <div class="alto_menos100">viewport menos 100 pixels</div>
     <div class="alto_mas100">viewport mas 100 pixels</div>
+    <div class="alto_mas_callback">viewport mas altura definida con función callback</div>
     <script>
       $('.alto_100').setViewportRelativeHeight();
       $('.alto_50').setViewportRelativeHeight('50%');
       $('.alto_60').setViewportRelativeHeight('60%');
       $('.alto_menos100').setViewportRelativeHeight(-100);
       $('.alto_mas100').setViewportRelativeHeight(100);
+      $('.alto_mas_callback').setViewportRelativeHeight(function(){ return -$('.alto_60').height(); });
     </script>
 
 
